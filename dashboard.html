@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kasir - JRT Limbung</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <span>🥤</span> JRT Limbung
+        </div>
+        <p class="role-text">Kasir: <strong id="nama-kasir">Muhrasyadan</strong></p>
+        <hr>
+        <button onclick="logout()" class="btn-logout">Keluar Sistem</button>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="cards-grid">
+            <div class="card card-income">
+                <h4>Total Pendapatan (Omzet)</h4>
+                <p id="total-pendapatan">Rp 0</p>
+            </div>
+            <div class="card card-capital">
+                <h4>Total Modal Bahan</h4>
+                <p id="total-modal">Rp 0</p>
+            </div>
+            <div class="card card-profit">
+                <h4>Total Keuntungan Bersih</h4>
+                <p id="total-keuntungan">Rp 0</p>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            
+            <div class="panel">
+                <h3>Input Penjualan Baru</h3>
+                <form id="form-transaksi" onsubmit="tambahTransaksi(event)">
+                    <div class="input-group">
+                        <label for="pilih-minuman">Pilih Minuman</label>
+                        <select id="pilih-minuman" onchange="updateHargaOtomatis()" required>
+                            <option value="">-- Pilih Menu --</option>
+                            <option value="Matcha Latte" data-harga="15000" data-modal="7000">Matcha Latte (Jual: 15k | Modal: 7k)</option>
+                            <option value="Es Kopi Susu" data-harga="12000" data-modal="5000">Es Kopi Susu (Jual: 12k | Modal: 5k)</option>
+                            <option value="Thai Tea" data-harga="10000" data-modal="4000">Thai Tea (Jual: 10k | Modal: 4k)</option>
+                            <option value="Fruit Punch" data-harga="14000" data-modal="6000">Fruit Punch (Jual: 14k | Modal: 6k)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="jumlah-beli">Jumlah (Qty)</label>
+                            <input type="number" id="jumlah-beli" min="1" value="1" oninput="hitungTotalBayar()" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Total Bayar</label>
+                            <input type="text" id="total-bayar-display" value="Rp 0" readonly class="input-readonly">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Simpan Transaksi</button>
+                </form>
+            </div>
+
+            <div class="panel">
+                <h3>Riwayat Penjualan Hari Ini</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Menu</th>
+                                <th>Qty</th>
+                                <th>Total Jual</th>
+                                <th>Keuntungan</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabel-riwayat">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Kasir Minuman</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-brand">
+            <div class="brand-icon">🥤</div>
+            <h2>JRT Limbung</h2>
+            <p>Sistem Kasir & Pendataan Keuangan</p>
+        </div>
+        
+        <div class="login-box">
+            <h3>LOGIN KASIR</h3>
+            <p class="sub-text">Silakan masuk untuk mengelola penjualan</p>
+            
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Masukkan username Anda">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan password Anda">
+            </div>
+            
+            <button onclick="login()" class="btn-login">Login</button>
+            
+            <p id="pesan" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
